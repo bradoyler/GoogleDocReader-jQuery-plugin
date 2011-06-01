@@ -2,4 +2,5 @@ Started this project to make protyping a web app with HTML\CSS\jQuery easier to 
 
 Just pass in the published spreadsheet key.
 
-See demo @ http://w3portals.com/gCalReader
+
+http://w3portals.com
