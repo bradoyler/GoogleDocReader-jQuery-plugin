@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        #datalist { list-style:none; }
+        #datalist li { padding:3px; border-bottom:2px solid #eee;}
+    </style>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>   
+<script src="jquery.gdocreader-1.0.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+   jQuery(function ($) {
+       
+          var gdocURL = "http://spreadsheets.google.com/tq?key=0AuWgxEsnpAIUdE9kaUtoYV9xM1ktQlhsOGcyRlgtV0E";
+                 $.ss(gdocURL)
+                 .setQuery("select * where B like 'test%'")
+                 .setField("id,name,type,type2,createdate")
+                 .send(function(success){
+              if(!success) return;
+              this.each(function(i){
+                 console.log(this);
+				 $('#datalist').append('<li><b> ' + this.name +' </b> '+ this.type+' '+ this.createdate  +'</li>');
+             })
+          });
+      });
+</script>
+<body>
+   
+   <ul id="datalist"><il> <b>Item name</b> Type, create </il> </ul>
+
+</body>
+</html>
